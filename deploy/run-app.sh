@@ -114,10 +114,18 @@ EOF
             ;;
 
         (--mail-name)
-            if [ -z "$2" ]
+            if [ -n "$2" ]
             then
                 mailname="$2"
             fi
+						;;
+						
+        (--relayhost)
+            if [ -n "$2" ]
+            then
+                relayhost="$2"
+            fi
+						;;
 
         (--skip-trust-all)
             trust_local=0
@@ -130,12 +138,6 @@ EOF
         (--skip-trust-local)
             trust_local=0
             ;;
-
-        (--relayhost)
-            if [ -z "$2" ]
-            then
-                relayhost="$2"
-            fi
 
         (--trust-local)
             trust_local=1
