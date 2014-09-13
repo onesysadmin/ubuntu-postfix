@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Alex Sanz <asans@evirtualpost.com>
 
-ENTRYPOINT ["/app/init-postfix.sh"]
+ENTRYPOINT ["/app/run-app.sh"]
 EXPOSE 25
 
 # Build packages first
