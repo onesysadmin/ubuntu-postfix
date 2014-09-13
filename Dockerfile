@@ -6,4 +6,4 @@ EXPOSE 25
 
 # Build packages first
 COPY deploy/ /app/
-RUN /app/install.sh
+RUN /app/provision.sh
