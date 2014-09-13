@@ -13,6 +13,7 @@ local_all_subnets=no
 local="no"
 option_value=""
 interfaces=""
+relayhost=""
 subnets=""
 verbose=0
 
@@ -22,7 +23,7 @@ trust_rfc1918=0
 trust_connected_rfc1918=1
 trust_lla=0
 
-if [ -z "$TRUST" ]
+if [ -n "$TRUST" ]
 then
     trust_connected_rfc1918=0
     if [ "$TRUST" = "connected" ]
