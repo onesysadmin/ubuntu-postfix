@@ -23,6 +23,11 @@ trust_rfc1918=0
 trust_connected_rfc1918=1
 trust_lla=0
 
+if [ -n "$RELAYHOST" ]
+then
+		relayhost="$RELAYHOST"
+fi
+
 if [ -n "$TRUST" ]
 then
     trust_connected_rfc1918=0
@@ -103,7 +108,7 @@ Default: --trust-local --trust-connected-rfc1918
 
 --skip-trust-*             Use with local, connected-rfc1918, connected, rfc1918, or lla to skip trusting it
 --skip-all                 Disable/reset all trusts
-
+--relayhost                Sets the relay host
 EOF
             exit 1
             ;;
@@ -125,6 +130,12 @@ EOF
         (--skip-trust-local)
             trust_local=0
             ;;
+
+        (--relayhost)
+            if [ -z "$2" ]
+            then
+                relayhost="$2"
+            fi
 
         (--trust-local)
             trust_local=1
@@ -332,6 +343,8 @@ fi
 
 seded_mynetworks=`echo $MYNETWORK | sed 's/#/\\#/g'`
 sed -i -r "s#mynetworks = (.*)#mynetworks = $mynetworks#g" /etc/postfix/main.cf
+
+sed -i -r "s#relayhost = (.*)#relayhost = $relayhost#g" /etc/postfix/main.cf
 
 # Utilize the init script to configure the chroot (if needed)
 /etc/init.d/postfix start > /dev/null
