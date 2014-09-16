@@ -41,6 +41,11 @@ arguments.
 	        <td>Mail name to use (appears in mail headers). Defaults to hostname</td>
 	    </tr>
         <tr>
+        	<td>RELAYHOST="[relay hostname]</td>
+	        <td><code>--relayhost []</code></td>
+	        <td>The host to relay mail to.</td>
+	    </tr>
+        <tr>
         	<td><code>TRUST="local"</code> or <code>TRUST_LOCAL="0"</code></td>
 	        <td><code>--trust-local</code></td>
 	        <td>Trust addresses on the lo interface. Enabled by default</td>
@@ -66,12 +71,12 @@ arguments.
 	        <td>Trust the fe80::/64 IPv6 subnet. Disabled by default</td>
 	    </tr>
         <tr>
-        	<td><code>TRUST_SUBNETS="(space separated list of subnets]"</code></td>
+        	<td><code>TRUST_SUBNETS="[space separated list of subnets]"</code></td>
 	        <td><code>--trust-subnet []</code></td>
 	        <td>Trust the specified subnet (IPv4 and IPv6 supported). Disabled by default</td>
 	    </tr>
         <tr>
-        	<td><code>TRUST_INTERFACES="(space separated list of interfaces)"</code></td>
+        	<td><code>TRUST_INTERFACES="[space separated list of interfaces]"</code></td>
 	        <td><code>--trust-interface []</code></td>
 	        <td>Trust all network address on the interface (excluding IPv6 LLA). Disabled by default</td>
 	    </tr>
