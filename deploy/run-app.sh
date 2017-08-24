@@ -241,10 +241,10 @@ do
         is_ipv6=`echo "$sip_calc" | grep -c ipv6`
         if [ $is_ipv6 -eq 0 ]
         then
-           subnet=`sipcalc $address | get_v4_network`
+           subnet=`echo $address | get_v4_network`
            trusted4="${trusted4}$subnet "
         else
-           subnet=`sipcalc $address | get_v6_network`
+           subnet=`echo $address | get_v6_network`
            trusted6="${trusted6}$subnet "
         fi
     else
